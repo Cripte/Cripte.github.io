@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Розписание</title>
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="https://github9019.github.io/MyFrimversion0.2/styleFrim.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+	<header class="flex-Container">
+		<h1 class="flex-grow-1">
+			<a href="index.html">Група Р-119</a> 
+		</h1>
+		<i class="fas fa-bars" id="BARS"></i>
+	</header>
+	<main>
+		<div class="Monday">
+			<h2>
+				Понедельник
+			</h2>
+			<ol>
+				<li>Біологія (аудитория 403)</li>
+				<li>Укр мова (аудитория 313)</li>
+				<li>Хімія (аудитория 213)</li>
+				<li>Фізкультура (аудитория 121)</li>
+			</ol>
+		</div>
+		<div class="Tuesday">
+			<h2>
+				Вторник
+			</h2>
+			<ol>
+				<li>Зарубіжна література (аудитория 306)</li>
+				<li>Математика (аудитория 417)</li>
+				<li id="Coup"></li>
+				<div class="flex-Container">
+					<input type="text" id="input1" value="" class="display_none" placeholder="Хімія/Укр мова">
+					<button class="display_none" id="EditInput1">Save</button>
+				</div>
+				<li>Укр літ(аудитория 402)</li>
+			</ol>
+		</div>
+		<div class="Wednesday">
+			<h2>
+				Среда
+			</h2>
+			<ol>
+				<li>Географія (аудитория 408)</li>
+				<li>Біологія (аудитория 403)</li>
+				<li>Всесвітня істория (аудитория 303)</li>
+			</ol>
+		</div>
+		<div class="Thursday">
+			<h2>
+				Четверг
+			</h2>
+			<ol>
+				<li>Фізика (аудитория 313)</li>
+				<li>Біологія (аудитория 412)</li>
+				<li id="Coup1"></li>
+				<div class="flex-Container">
+					<input type="text" id="input2" value="" class="display_none" placeholder="Матем/Укр літ">
+					<button class="display_none" id="EditInput2">Save</button>					
+				</div>
+
+			</ol>
+		</div>
+		<div class="Friday">
+			<h2>
+				Пятница
+			</h2>
+			<ol>
+				<li>Нет пары. Приходить в 9:50</li>
+				<li>Інформатика (аудитория 413)</li>
+				<li>Фізика (аудитория 411)</li>
+				<li>Укр мова (аудитория 316)</li>
+			</ol>
+		</div>
+	</main>
+	<footer>
+		Розписание групы P-119
+	</footer>
+	<script type="text/javascript" src="https://github9019.github.io/MyFrimversion0.2/JsFrim.js"></script>
+	<script type="text/javascript">
+		window.onload = function (){
+			let Coup = ConnectId('Coup');
+			let input1 = ConnectId('input1');
+			let input2 = ConnectId('input2');
+			let EditInput1 = ConnectId('EditInput1');
+			let EditInput2 = ConnectId('EditInput2');
+			let checkClick = true;
+			let checkClick1 = true;
+			// проверка на наличие локал стордж записанли та или иная пара
+			if (localStorage.getItem("Tuesday") == null) {
+				let prom = prompt('Какой урок в Вторник(назамен)? Укр мова или Хімя ?');
+				localStorage.setItem("Tuesday",prom);
+			}
+			if (localStorage.getItem("Thursday") == null) {
+				let prom1 = prompt('Какой урок в Четверг(назамен)? Укр літ или Матем ?');
+				localStorage.setItem("Thursday",prom1);
+			}
+			// если всё заполнено то выстовлять их или изминять 
+			if (localStorage.getItem("Tuesday") != null){
+				setInterval(function(){
+					Coup.innerHTML = localStorage.getItem("Tuesday");
+					if (Coup.innerHTML == 'Укр мова' 
+					 || Coup.innerHTML == 'Укрмова'  
+					 || Coup.innerHTML == 'укрмова' 
+					 || Coup.innerHTML == 'укр мова') {
+						Coup.innerHTML = 'Укр мова (аудитория 306)'
+					}else if(Coup.innerHTML == 'Хімія' || Coup.innerHTML == 'xімія'){
+						Coup.innerHTML = 'Хімія (аудитория 213)';
+					}
+				},1)
+			}if (localStorage.getItem("Thursday") != null){
+				setInterval(function(){
+					Coup1.innerHTML = localStorage.getItem("Thursday");
+					if (Coup1.innerHTML == 'Укр літ' 
+					 || Coup1.innerHTML == 'Укрліт'  
+					 || Coup1.innerHTML == 'укрліт' 
+					 || Coup1.innerHTML == 'укр літ') {
+						Coup1.innerHTML = 'Укр література (аудитория 314)'
+					}else if(Coup1.innerHTML == 'Матем' || Coup1.innerHTML == 'матем'){
+						Coup1.innerHTML = 'Математика (аудитория 417)';
+					}
+				},1)
+			}
+			// дроп меню по инпуту и кнопке
+			Coup.onclick = function(){
+				display(input1);
+				display(EditInput1);
+				if (checkClick == false) {
+					display_none(input1);
+					display_none(EditInput1);
+					checkClick = true;	
+				}else{
+					checkClick = false;
+				}
+			}
+			EditInput1.onclick = function(){
+				localStorage.setItem("Tuesday",input1.value);
+			}
+			Coup1.onclick = function(){
+				display(input2);
+				display(EditInput2);
+				if (checkClick1 == false) {
+					display_none(input2);
+					display_none(EditInput2);
+					checkClick1 = true;	
+				}else{
+					checkClick1 = false;
+				}
+			}
+			EditInput2.onclick = function(){
+				localStorage.setItem("Thursday",input2.value);
+			}
+		}
+	</script>
+</body>
+</html>
