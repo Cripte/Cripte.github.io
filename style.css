@@ -1,0 +1,30 @@
+body{
+	background-color: rgb(38, 38, 38);
+	color: white;
+}
+header{
+	width: 100%;
+	border-bottom: 2px solid white;
+}
+h1{
+	margin: 0;
+	padding: 0;
+}
+.list_StorgeGithub{
+	margin-left: 10px; 
+}
+.list_StorgeGithub ul{
+	margin-left: 50px; 
+}
+.list_StorgeGithub ul li{
+	padding: 5px;
+}
+ul{
+	list-style: none;
+}
+a{
+	color: white;
+}
+li:hover{
+	cursor: pointer;
+}

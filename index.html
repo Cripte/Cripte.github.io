@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Мой гитхаб</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="https://github9019.github.io/MyFrimversion0.2/styleFrim.css">
+</head>
+<body>
+	<header>
+		<h1>
+			Мой гитхаб
+		</h1>
+	</header>
+	<main>
+		<div class="list_StorgeGithub">		
+			<h2>
+				Всё на гитхабе
+			</h2>
+			<ul>
+				<li>
+					<span onclick="drop_menuFUN(FrimAdress)">Мои библиотеки</span>
+					<div class="display_none" id="FrimAdress">
+						<ul>
+							<li>
+								<a href="https://Cripte.github.io/MyFrim/styleFrim.css">По JS</a> или <input id="inputFrimJs" class="w-50" value="<script type='text/javascript' src='https://Cripte.github.io/MyFrim/JsFrim.js'></script>"><button onclick="CopyFrim('inputFrimJs')">Copy</button>
+							</li>
+							<li>
+								<a href="https://Cripte.github.io/MyFrim/styleFrim.css">По СSS</a> или
+								 <input id="inputFrimCSS" class="w-50" value="<link rel='stylesheet' type='text/css' href='https://Cripte.github.io/MyFrim/styleFrim.css'>"><button onclick="CopyFrim('inputFrimCSS')">Copy</button>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a href="https://Cripte.github.io/Ros">Розписание</a>
+				</li>
+				<li>		
+					<span onclick="drop_menuFUN(ConnectId('Popular'))">
+						Полезные команды
+					</span>
+					<div id="Popular" class="display_none">
+						<ul>
+							<li>
+								<input class="w-50" id="Meta" value="<meta name='viewport' content='width=device-width, initial-scale=1.0'>"><button onclick="CopyFrim('Meta')">Copy</button>
+							</li>
+							<li>
+								<input class="w-50" id="FontAvosome" value="<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf' crossorigin='anonymous'"><button onclick="CopyFrim('FontAvosome')">Copy</button>
+							</li>
+						</ul>
+					</div>
+				</li>				
+			</ul>
+		</div>
+	</main>
+	<script type="text/javascript" src="https://github9019.github.io/MyFrimversion0.2/JsFrim.js"></script>
+	<script type="text/javascript">
+		let FrimAdress = ConnectId('FrimAdress');
+
+		function drop_menuFUN(elem){
+			if (elem.classList.contains('display_none') == true) {
+				drop_menu = true;
+			}else{
+				drop_menu = false;
+			}
+			if (drop_menu == true) {
+				display(elem)
+			}else{
+				display_none(elem)
+			}
+		}
+
+		function CopyFrim(elem) {
+			let input = ConnectId(elem);
+			let range = document.createRange();
+			range.selectNode(input);
+	 		window.getSelection().addRange(range);
+
+    		document.execCommand('copy');
+
+  			window.getSelection().removeAllRanges();
+
+
+		}
+		
+	</script>
+</body>
+</html>
