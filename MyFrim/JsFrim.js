@@ -72,7 +72,7 @@ function aClass(elem,Class) {
 };
 function rClass(elem,Class) {
 	if (elem.classList.contains(Class) == false ) {
-		print('Класа не существует')
+		prin('Класа не существует')
 	}else{
 		elem.classList.remove(Class);
 	}
